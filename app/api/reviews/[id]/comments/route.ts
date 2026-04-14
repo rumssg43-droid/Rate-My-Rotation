@@ -1,7 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createServiceClient, createServerClient } from '@/lib/supabase';
 
-export async function GET(req: NextRequest, { params }: { params: { id: string } }) {
+export async function GET(req: NextRequest, { params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params;
   // Requires a valid access token to read comments
   const token = req.headers.get('x-access-token') || new URL(req.url).searchParams.get('token');
   if (!token) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
@@ -17,7 +18,7 @@ export async function GET(req: NextRequest, { params }: { params: { id: string }
   const { data: comments } = await service
     .from('review_comments')
     .select('id, content, user_id, created_at')
-    .eq('review_id', params.id)
+    .eq('review_id', id)
     .eq('is_flagged', false)
     .order('created_at', { ascending: true });
 
@@ -32,7 +33,8 @@ export async function GET(req: NextRequest, { params }: { params: { id: string }
   return NextResponse.json({ comments: pseudonymised });
 }
 
-export async function POST(req: NextRequest, { params }: { params: { id: string } }) {
+export async function POST(req: NextRequest, { params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params;
   // Must be logged in
   const supabase = await createServerClient();
   const { data: { user } } = await supabase.auth.getUser();
@@ -49,7 +51,7 @@ export async function POST(req: NextRequest, { params }: { params: { id: string 
   const { data: review } = await service
     .from('reviews')
     .select('rotation_id, rotations(deanery, training_level)')
-    .eq('id', params.id)
+    .eq('id', id)
     .single();
 
   if (!review) return NextResponse.json({ error: 'Review not found' }, { status: 404 });
@@ -67,7 +69,7 @@ export async function POST(req: NextRequest, { params }: { params: { id: string 
 
   const { data: comment, error } = await service
     .from('review_comments')
-    .insert({ review_id: params.id, user_id: user.id, content: content.trim() })
+    .insert({ review_id: id, user_id: user.id, content: content.trim() })
     .select('id, content, user_id, created_at')
     .single();
 

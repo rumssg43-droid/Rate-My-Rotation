@@ -1,7 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createServiceClient, createServerClient } from '@/lib/supabase';
 
-export async function POST(req: NextRequest, { params }: { params: { id: string } }) {
+export async function POST(req: NextRequest, { params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params;
   const supabase = await createServerClient();
   const { data: { user } } = await supabase.auth.getUser();
   if (!user) return NextResponse.json({ error: 'Sign in to react' }, { status: 401 });
@@ -17,7 +18,7 @@ export async function POST(req: NextRequest, { params }: { params: { id: string 
   const { data: review } = await service
     .from('reviews')
     .select('rotation_id, rotations(deanery, training_level)')
-    .eq('id', params.id)
+    .eq('id', id)
     .single();
 
   if (!review) return NextResponse.json({ error: 'Review not found' }, { status: 404 });
@@ -37,7 +38,7 @@ export async function POST(req: NextRequest, { params }: { params: { id: string 
   const { data: existing } = await service
     .from('review_reactions')
     .select('id, reaction')
-    .eq('review_id', params.id)
+    .eq('review_id', id)
     .eq('user_id', user.id)
     .single();
 
@@ -52,7 +53,7 @@ export async function POST(req: NextRequest, { params }: { params: { id: string 
       return NextResponse.json({ reaction });
     }
   } else {
-    await service.from('review_reactions').insert({ review_id: params.id, user_id: user.id, reaction });
+    await service.from('review_reactions').insert({ review_id: id, user_id: user.id, reaction });
     return NextResponse.json({ reaction });
   }
 }

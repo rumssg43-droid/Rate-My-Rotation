@@ -1,0 +1,16 @@
+<svg width="100%" viewBox="0 0 680 260" role="img" xmlns="http://www.w3.org/2000/svg"><defs><mask id="imagine-text-gaps-ln0tvv" maskUnits="userSpaceOnUse"><rect x="0" y="0" width="680" height="260" fill="white"/><rect x="255.51693725585938" y="46.243202209472656" width="168.96612548828125" height="89.00166320800781" fill="black" rx="2"/><rect x="265.2326354980469" y="143.29872131347656" width="149.53469848632812" height="16.011104583740234" fill="black" rx="2"/></mask></defs>
+  <title style="fill:rgb(0, 0, 0);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">Rate My Rotation RMR monogram logo</title>
+  <desc style="fill:rgb(0, 0, 0);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">Minimal circular RMR monogram logo for Rate My Rotation</desc>
+
+  <!-- Circle background -->
+  <circle cx="340" cy="125" r="100" fill="#1A3A6B" style="fill:rgb(26, 58, 107);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+  <!-- RMR monogram — R slightly larger, M smaller beneath -->
+  <text x="340" y="118" font-family="-apple-system, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif" font-size="72" font-weight="200" fill="#FFFFFF" letter-spacing="4" text-anchor="middle" style="fill:rgb(255, 255, 255);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:-apple-system, &quot;SF Pro Display&quot;, &quot;Helvetica Neue&quot;, Arial, sans-serif;font-size:72px;font-weight:200;text-anchor:middle;dominant-baseline:auto">RMR</text>
+
+  <!-- Hairline rule -->
+  <line x1="268" y1="130" x2="412" y2="130" stroke="#FFFFFF" stroke-width="0.5" opacity="0.4" mask="url(#imagine-text-gaps-ln0tvv)" style="fill:rgb(0, 0, 0);stroke:rgb(255, 255, 255);color:rgb(0, 0, 0);stroke-width:0.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.4;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+  <!-- Subtle full name -->
+  <text x="340" y="155" font-family="-apple-system, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif" font-size="10" font-weight="300" fill="#7FB3E8" letter-spacing="3.5" text-anchor="middle" style="fill:rgb(127, 179, 232);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:-apple-system, &quot;SF Pro Display&quot;, &quot;Helvetica Neue&quot;, Arial, sans-serif;font-size:10px;font-weight:300;text-anchor:middle;dominant-baseline:auto">RATE MY ROTATION</text>
+</svg>

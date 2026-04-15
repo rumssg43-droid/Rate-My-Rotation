@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { stripe } from '@/lib/stripe';
+import { getStripe } from '@/lib/stripe';
 import { PRICE_PENCE, BUNDLE_PRICE_PENCE } from '@/lib/constants';
 
 export async function POST(req: NextRequest) {
@@ -25,7 +25,7 @@ export async function POST(req: NextRequest) {
     ? `${appUrl}/checkout?deanery=${encodeURIComponent(deanery)}&bundle=true`
     : `${appUrl}/checkout?deanery=${encodeURIComponent(deanery)}&training_level=${encodeURIComponent(training_level)}`;
 
-  const session = await stripe.checkout.sessions.create({
+  const session = await getStripe().checkout.sessions.create({
     payment_method_types: ['card'],
     line_items: [
       {

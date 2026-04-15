@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { SPECIALTIES, DEANERIES, TRAINING_LEVELS, RATING_LABELS } from '@/lib/constants';
 
-const STEPS = ['Rotation Details', 'Ratings', 'Free Text', 'Referral'];
+const STEPS = ['Rotation Details', 'Ratings', 'Free Text'];
 
 const YEARS = Array.from({ length: 5 }, (_, i) => 2025 - i);
 const MONTHS = Array.from({ length: 12 }, (_, i) => i + 1);
@@ -96,12 +96,7 @@ export default function SubmitForm() {
       <div className="text-center py-10">
         <div className="text-5xl mb-4">🎉</div>
         <h2 className="text-2xl font-bold text-gray-900 mb-3">Thank you!</h2>
-        <p className="text-gray-500 mb-6">Your review has been submitted and will help other doctors.</p>
-        <div className="bg-blue-50 border border-blue-200 rounded-xl p-6 max-w-md mx-auto">
-          <p className="font-semibold text-blue-800 mb-2">Your referral code</p>
-          <p className="text-3xl font-mono font-bold text-blue-700 mb-3">{myReferralCode}</p>
-          <p className="text-sm text-blue-600">Share this code with colleagues. You earn £3 for every review submitted using your code.</p>
-        </div>
+        <p className="text-gray-500 mb-6">Your review has been submitted and will help other doctors make better career decisions.</p>
       </div>
     );
   }
@@ -217,24 +212,6 @@ export default function SubmitForm() {
         </div>
       )}
 
-      {/* Step 4 */}
-      {step === 3 && (
-        <div className="space-y-5">
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">Were you referred by someone? (optional)</label>
-            <input
-              value={form.referral_code}
-              onChange={e => set('referral_code', e.target.value.toUpperCase())}
-              placeholder="Enter referral code"
-              className="w-full border rounded-lg px-3 py-2 text-sm font-mono uppercase"
-            />
-          </div>
-          <div className="bg-gray-50 rounded-xl p-5 text-sm text-gray-600">
-            <p className="font-semibold text-gray-800 mb-1">How referrals work</p>
-            <p>After you submit your review, you&apos;ll receive a unique referral code. Share it with colleagues — you earn <strong>£3</strong> for every review submitted using your code.</p>
-          </div>
-        </div>
-      )}
 
       {/* Navigation */}
       <div className="flex justify-between mt-8">

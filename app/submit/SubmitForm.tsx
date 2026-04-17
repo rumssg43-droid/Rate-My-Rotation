@@ -204,7 +204,7 @@ export default function SubmitForm() {
                 onChange={e => set(key, e.target.value)}
                 rows={4}
                 className="w-full border rounded-lg px-3 py-2 text-sm resize-none"
-                placeholder="100–200 words recommended..."
+                placeholder="10–50 words is plenty..."
               />
               <div className="text-xs text-gray-400 text-right">{(form as any)[key].split(' ').filter(Boolean).length} words</div>
             </div>
